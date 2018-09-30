@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import moment from "moment-jalaali";
 import classNames from "classnames/bind";
 
-import { MONTHS } from "../constants";
+import { MONTHS, MONTHS_FA } from "../constants";
 import { chunk } from "../utils";
 
 import classes from "../sass";
@@ -25,7 +25,7 @@ class Month extends Component {
     const _moment = this.state.moment.clone();
 
     this.setState({
-      moment: _moment[dir === "prev" ? "subtract" : "add"](1, "year")
+      moment: _moment[dir === "prev" ? "subtract" : "add"](1, "jYear")
     });
   };
 
@@ -34,7 +34,7 @@ class Month extends Component {
     const { onSelect } = this.props;
     const _moment = this.state.moment.clone();
 
-    _moment.month(month);
+    _moment.jMonth(month);
 
     this.setState({
       moment: _moment
@@ -54,37 +54,37 @@ class Month extends Component {
       rangeAt,
       dateLimit
     } = this.props;
-    const currentMonth = _moment.clone().month(month);
+    const currentMonth = _moment.clone().jMonth(month);
     const start =
       selected && range
         ? selected.start
-          ? currentMonth.isSame(selected.start, "month")
+          ? currentMonth.isSame(selected.start, "jMonth")
           : false
         : false;
     const end =
       selected && range
         ? selected.end
-          ? currentMonth.isSame(selected.end, "month")
+          ? currentMonth.isSame(selected.end, "jMonth")
           : false
         : false;
     const between =
       selected && range
         ? selected.start && selected.end
-          ? currentMonth.isBetween(selected.start, selected.end, "month")
+          ? currentMonth.isBetween(selected.start, selected.end, "jMonth")
           : false
         : false;
     const isSelected = selected
       ? range
         ? selected[rangeAt]
-          ? currentMonth.isSame(selected[rangeAt], "month")
+          ? currentMonth.isSame(selected[rangeAt], "jMonth")
           : false
         : currentMonth.isSame(selected, "day")
       : false;
     const disabledMax = maxDate
-      ? currentMonth.isAfter(maxDate, "month")
+      ? currentMonth.isAfter(maxDate, "jMonth")
       : false;
     const disabledMin = minDate
-      ? currentMonth.isBefore(minDate, "month")
+      ? currentMonth.isBefore(minDate, "jMonth")
       : false;
     let disabled = false;
     let limited = false;
@@ -128,7 +128,7 @@ class Month extends Component {
     const isDisabled = disabledMax || disabledMin || disabled || limited;
     const className = classNames({
       [classes["selected"]]: isSelected,
-      [classes["now"]]: now.isSame(currentMonth, "month"),
+      [classes["now"]]: now.isSame(currentMonth, "jMonth"),
       [classes["disabled"]]: isDisabled,
       [classes["start"]]: start,
       [classes["end"]]: end,
@@ -148,8 +148,8 @@ class Month extends Component {
 
   render() {
     const _moment = this.state.moment;
-    const months = MONTHS;
-    const { changePanel, style } = this.props;
+    const { changePanel, style, loadPersian } = this.props;
+    const months = loadPersian ? MONTHS_FA : MONTHS;
 
     return (
       <div className={classes["calendar-months"]} style={style}>
@@ -165,7 +165,7 @@ class Month extends Component {
             className={classes["current-date"]}
             onClick={changePanel.bind(this, "year", _moment)}
           >
-            {_moment.format("YYYY")}
+            {_moment.format("jYYYY")}
           </span>
           <button
             type="button"

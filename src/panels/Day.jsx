@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import moment from "moment-jalaali";
 import classNames from "classnames/bind";
 
-import { WEEKS, DAY_FORMAT } from "../constants";
-import { range as arrayRange, chunk } from "../utils";
+import { WEEKS, WEEKS_FA, DAY_FORMAT } from "../constants";
+import { range as arrayRange, chunk, convertNumToPersiann } from "../utils";
 
 import classes from "../sass";
 
@@ -25,7 +25,7 @@ class Day extends Component {
     const _moment = this.state.moment.clone();
 
     this.setState({
-      moment: _moment[dir === "prev" ? "subtract" : "add"](1, "month")
+      moment: _moment[dir === "prev" ? "subtract" : "add"](1, "jMonth")
     });
   };
 
@@ -34,10 +34,10 @@ class Day extends Component {
     const { range, onSelect } = this.props;
     const _moment = this.state.moment.clone();
 
-    if (isPrevMonth) _moment.subtract(1, "month");
-    if (isNextMonth) _moment.add(1, "month");
+    if (isPrevMonth) _moment.subtract(1, "jMonth");
+    if (isNextMonth) _moment.add(1, "jMonth");
 
-    _moment.date(day);
+    _moment.jDate(day);
 
     this.setState({
       moment: range ? this.state.moment : _moment
@@ -56,18 +56,19 @@ class Day extends Component {
       range,
       rangeAt,
       selected,
-      dateLimit
+      dateLimit,
+      loadPersian
     } = this.props;
     const now = moment();
     const _moment = this.state.moment;
     const isPrevMonth = week === 0 && day > 7;
     const isNextMonth = week >= 4 && day <= 14;
     const month = isNextMonth
-      ? _moment.clone().add(1, "month")
+      ? _moment.clone().add(1, "jMonth")
       : isPrevMonth
-        ? _moment.clone().subtract(1, "month")
+        ? _moment.clone().subtract(1, "jMonth")
         : _moment.clone();
-    const currentDay = month.clone().date(day);
+    const currentDay = month.clone().jDate(day);
     const start =
       selected && range
         ? selected.start
@@ -156,14 +157,14 @@ class Day extends Component {
           isNextMonth
         )}
       >
-        {day}
+        {loadPersian ? convertNumToPersiann(day) : day}
       </td>
     );
   };
 
   render() {
     const {
-      weeks = WEEKS,
+      weeks = this.props.loadPersian ? WEEKS_FA : WEEKS,
       dayFormat = DAY_FORMAT,
       style,
       changePanel
@@ -171,17 +172,17 @@ class Day extends Component {
     const _moment = this.state.moment;
     const firstDay = _moment
       .clone()
-      .date(1)
+      .jDate(1)
       .day();
     const endOfThisMonth = _moment
       .clone()
-      .endOf("month")
-      .date();
+      .endOf("jMonth")
+      .jDate();
     const endOfLastMonth = _moment
       .clone()
-      .subtract(1, "month")
-      .endOf("month")
-      .date();
+      .subtract(1, "jMonth")
+      .endOf("jMonth")
+      .jDate();
     const days = [].concat(
       arrayRange(endOfLastMonth - firstDay + 1, endOfLastMonth + 1),
       arrayRange(1, endOfThisMonth + 1),

@@ -61,8 +61,8 @@ class Shortcuts extends Component {
       ? {
           ...shortcuts,
           custom: customRange || {
-            start: moment().subtract(29, "days"),
-            end: moment().endOf("day")
+            start: moment().subtract(29, "jDays"),
+            end: moment().endOf("jDay")
           }
         }
       : shortcuts;

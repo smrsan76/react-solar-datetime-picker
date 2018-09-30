@@ -63,7 +63,7 @@ class Range extends Component {
       endDateText = END_DATE_TEXT
     } = this.props;
     const formatStyle =
-      format || (showTimePicker ? "YYYY/MM/DD HH:mm" : "YYYY/MM/DD");
+      format || (showTimePicker ? "jYYYY/jMM/jDD HH:mm" : "jYYYY/jMM/jDD");
     const className = classNames(
       classes["datetime-range-picker"],
       this.props.className

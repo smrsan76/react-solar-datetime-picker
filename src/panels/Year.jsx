@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import moment from "moment-jalaali";
 import classNames from "classnames/bind";
 
-import { chunk, range } from "../utils";
+import { chunk, range, convertNumToPersiann } from "../utils";
 
 import classes from "../sass";
 
@@ -24,7 +24,7 @@ class Year extends Component {
     const _moment = this.state.moment.clone();
 
     this.setState({
-      moment: _moment[dir === "prev" ? "subtract" : "add"](10, "year")
+      moment: _moment[dir === "prev" ? "subtract" : "add"](10, "jYear")
     });
   };
 
@@ -32,7 +32,7 @@ class Year extends Component {
     if (isDisabled) return;
     const _moment = this.state.moment.clone();
 
-    _moment.year(year);
+    _moment.jYear(year);
 
     this.setState({
       moment: _moment,
@@ -44,43 +44,44 @@ class Year extends Component {
   _renderYear = year => {
     const now = moment();
     const _moment = this.state.moment;
-    const firstYear = Math.floor(_moment.year() / 10) * 10;
+    const firstYear = Math.floor(_moment.jYear() / 10) * 10;
     const {
       maxDate,
       minDate,
       selected,
       range,
       rangeAt,
-      dateLimit
+      dateLimit,
+      loadPersian
     } = this.props;
-    const currentYear = _moment.clone().year(year);
+    const currentYear = _moment.clone().jYear(year);
     const start =
       selected && range
         ? selected.start
-          ? currentYear.isSame(selected.start, "year")
+          ? currentYear.isSame(selected.start, "jYear")
           : false
         : false;
     const end =
       selected && range
         ? selected.end
-          ? currentYear.isSame(selected.end, "year")
+          ? currentYear.isSame(selected.end, "jYear")
           : false
         : false;
     const between =
       selected && range
         ? selected.start && selected.end
-          ? currentYear.isBetween(selected.start, selected.end, "year")
+          ? currentYear.isBetween(selected.start, selected.end, "jYear")
           : false
         : false;
     const isSelected = selected
       ? range
         ? selected[rangeAt]
-          ? selected[rangeAt].year() === year
+          ? selected[rangeAt].jYear() === year
           : false
-        : selected.year() === year
+        : selected.jYear() === year
       : false;
-    const disabledMax = maxDate ? year > maxDate.year() : false;
-    const disabledMin = minDate ? year < minDate.year() : false;
+    const disabledMax = maxDate ? year > maxDate.jYear() : false;
+    const disabledMin = minDate ? year < minDate.jYear() : false;
     let disabled = false;
     let limited = false;
 
@@ -123,7 +124,7 @@ class Year extends Component {
     const isDisabled = disabledMax || disabledMin || disabled || limited;
     const className = classNames({
       [classes["selected"]]: isSelected,
-      [classes["now"]]: now.year() === year,
+      [classes["now"]]: now.jYear() === year,
       [classes["prev"]]: firstYear - 1 === year,
       [classes["next"]]: firstYear + 10 === year,
       [classes["disabled"]]: isDisabled,
@@ -138,15 +139,15 @@ class Year extends Component {
         className={className}
         onClick={this.select.bind(this, year, isDisabled)}
       >
-        {year}
+        {loadPersian ? convertNumToPersiann(year) : year}
       </td>
     );
   };
 
   render() {
     const _moment = this.state.moment;
-    const { style } = this.props;
-    const firstYear = Math.floor(_moment.year() / 10) * 10;
+    const { style, loadPersian } = this.props;
+    const firstYear = Math.floor(_moment.jYear() / 10) * 10;
     const years = range(firstYear - 1, firstYear + 11);
 
     return (
@@ -160,7 +161,11 @@ class Year extends Component {
             <i className={`${classes["icon"]} ${classes["icon-angle-left"]}`} />
           </button>
           <span className={`${classes["current-date"]} ${classes["disabled"]}`}>
-            {firstYear} - {firstYear + 9}
+            {loadPersian
+              ? `${convertNumToPersiann(firstYear)} - ${convertNumToPersiann(
+                  firstYear + 9
+                )}`
+              : `${firstYear} - ${firstYear + 9}`}
           </span>
           <button
             type="button"
