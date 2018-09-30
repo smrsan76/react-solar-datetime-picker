@@ -39,6 +39,15 @@
       <pre><code class="language-jsx">import React, {Component} from 'react';
 import moment from 'moment-jalaali';
 
+// Use this function to load persian language and numbers.
+// Notice: If you are using this function and wanna make it work,
+// you should also set the value of 'loadPersian' property to true
+// for the desired component.
+moment.loadPersian({
+  usePersianDigits: true,
+  dialect: "persian-modern"
+});
+
 import "react-solar-datetime-picker/dist/react-solar-datetime-picker.css";
 import {DatetimePicker} from 'react-solar-datetime-picker';
 
@@ -63,6 +72,7 @@ class App extends Component {
         moment={this.state.moment}
         onChange={this.handleChange}
         showTimePicker={false}
+        loadPersian={true}
       /&gt;
     );
   }
@@ -81,6 +91,15 @@ render(
     <div class="example-code">
       <pre><code class="language-jsx">import React, {Component} from 'react';
 import moment from 'moment-jalaali';
+
+// Use this function to load persian language and numbers.
+// Notice: If you are using this function and wanna make it work,
+// you should also set the value of 'loadPersian' property to true
+// for the desired component.
+moment.loadPersian({
+  usePersianDigits: true,
+  dialect: "persian-modern"
+});
 
 import "react-solar-datetime-picker/dist/react-solar-datetime-picker.css";
 import {DatetimePickerTrigger} from 'react-solar-datetime-picker';
@@ -111,7 +130,8 @@ class App extends Component {
         shortcuts={shortcuts} 
         moment={this.state.moment}
         onChange={this.handleChange}
-        showTimePicker={false}&gt
+        showTimePicker={false}
+        loadPersian={true}&gt
         &lt;input type="text" value={this.state.moment.format('YYYY-MM-DD')} readOnly /&gt;
       &lt;/DatetimePickerTrigger&gt;
     );

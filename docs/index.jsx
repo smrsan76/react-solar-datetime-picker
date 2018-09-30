@@ -2,6 +2,10 @@ import "babel-polyfill";
 import React, { Component } from "react";
 import { render } from "react-dom";
 const moment = require("moment-jalaali");
+moment.loadPersian({
+  usePersianDigits: true,
+  dialect: "persian-modern"
+});
 
 import "../dist/react-solar-datetime-picker.min.css";
 
@@ -26,6 +30,7 @@ const DatetimePickerTrigger = RCLOADABLE(
 );
 
 // Development Test (HMR)
+// import "../src/sass";
 // import { DatetimePicker, DatetimePickerTrigger } from "../src";
 
 import "./index.scss";
@@ -50,11 +55,12 @@ class InlinePicker extends Component {
 
     return (
       <div>
-        <span className="text">Datetime: {moment.format("YYYY/MM/DD")}</span>
+        <span className="text">Datetime: {moment.format("jYYYY/jMM/jDD")}</span>
         <DatetimePicker
           moment={moment}
           onChange={this.handleChange}
           showTimePicker={false}
+          loadPersian={true}
         />
       </div>
     );
@@ -82,7 +88,7 @@ class PopupPickerBottom extends Component {
       Clear: ""
     };
     const { datetime } = this.state;
-    const value = datetime ? datetime.format("YYYY/MM/DD") : "";
+    const value = datetime ? datetime.format("jYYYY/jMM/jDD") : "";
 
     return (
       <React.Fragment>
@@ -92,6 +98,7 @@ class PopupPickerBottom extends Component {
           onChange={this.handleChange}
           appendToBoddy={true}
           showTimePicker={false}
+          loadPersian={true}
           position="bottom"
         >
           <input type="text" value={value} readOnly />
@@ -127,7 +134,7 @@ class PopupPickerTop extends Component {
       Clear: ""
     };
     const { datetime } = this.state;
-    const value = datetime ? datetime.format("YYYY/MM/DD") : "";
+    const value = datetime ? datetime.format("jYYYY/jMM/jDD") : "";
 
     return (
       <React.Fragment>
@@ -137,6 +144,7 @@ class PopupPickerTop extends Component {
           onChange={this.handleChange}
           appendToBoddy={true}
           showTimePicker={false}
+          loadPersian={true}
           position="top"
         >
           <input type="text" value={value} readOnly />
