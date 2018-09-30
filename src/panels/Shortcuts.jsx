@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import moment from "moment";
+import moment from "moment-jalaali";
 import classNames from "classnames/bind";
 import { CUSTOM_BUTTON_TEXT } from "../constants";
 import classes from "../sass";
