@@ -143,6 +143,16 @@ See the [demo] page.
       <td>'day'</td>
       <td>Min panel for select.</td>
     </tr>
+    <tr>
+      <td>loadPersian</td>
+      <td>Boolean</td>
+      <td>undefined</td>
+      <td>
+        If you used the 'loadPersian' function of 'moment-jalaali' package,
+        make sure that it's argument is equals to `{ usePersianDigits: true, dialect: "persian-modern" }`
+        and you set the value of this property to `true`.
+      </td>
+    <tr>
   </tbody>
 </table>
 
@@ -259,10 +269,19 @@ See the [demo] page.
       <td>String</td>
       <td>'bottom'</td>
       <td>
-        <b><i>>= v1.0.0</i></b><br/>
         The position of popup.
       </td>
     </tr>
+    <tr>
+      <td>loadPersian</td>
+      <td>Boolean</td>
+      <td>undefined</td>
+      <td>
+        If you used the 'loadPersian' function of 'moment-jalaali' package,
+        make sure that it's argument is equals to `{ usePersianDigits: true, dialect: "persian-modern" }`
+        and you set the value of this property to `true`.
+      </td>
+    <tr>
   </tbody>
 </table>
 
@@ -404,6 +423,16 @@ See the [demo] page.
       <td>'day'</td>
       <td>Min panel for select.</td>
     </tr>
+    <tr>
+      <td>loadPersian</td>
+      <td>Boolean</td>
+      <td>undefined</td>
+      <td>
+        If you used the 'loadPersian' function of 'moment-jalaali' package,
+        make sure that it's argument is equals to `{ usePersianDigits: true, dialect: "persian-modern" }`
+        and you set the value of this property to `true`.
+      </td>
+    <tr>
   </tbody>
 </table>
 
@@ -562,10 +591,19 @@ See the [demo] page.
       <td>String</td>
       <td>'bottom'</td>
       <td>
-        <b><i>>= v1.0.0</i></b><br/>
         The position of popup.
       </td>
     </tr>
+    <tr>
+      <td>loadPersian</td>
+      <td>Boolean</td>
+      <td>undefined</td>
+      <td>
+        If you used the 'loadPersian' function of 'moment-jalaali' package,
+        make sure that it's argument is equals to `{ usePersianDigits: true, dialect: "persian-modern" }`
+        and you set the value of this property to `true`.
+      </td>
+    <tr>
   </tbody>
 </table>
 
