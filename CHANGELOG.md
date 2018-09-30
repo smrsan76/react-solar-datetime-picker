@@ -1,3 +1,11 @@
+# react-solar-datetime-picker
+
+## v0.0.1
+
+- (**Breaking**) [Moment-jalaali](https://npmjs.com/package/moment-jalaali) used instead of [Moment](https://npmjs.com/package/moment).
+- (**Breaking**) Solar calendar used instead of calendar.
+- (**Breaking**) Persian language added.
+
 # imrc-datetime-picker
 
 ## v1.3.2
