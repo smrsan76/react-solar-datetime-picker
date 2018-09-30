@@ -1,21 +1,24 @@
-# (Improved) Rc-Datetime-Picker
+# React-Solar-Datetime-Picker
 
-Imrc-Datetime-Picker is a react component for datetime picker by [Moment.js].
+React-Solar-Datetime-Picker is a react component for datetime picker by [Moment-jalaali.js].
 
-[![NPM](https://nodei.co/npm/imrc-datetime-picker.png)](https://nodei.co/npm/imrc-datetime-picker/)
+[![NPM](https://nodei.co/npm/react-solar-datetime-picker.png)](https://nodei.co/npm/react-solar-datetime-picker/)
+
+This package made using the source codes of [`imrc-datetime-picker`](https://imrc-datetime-picker.js.org) which is also created using
+the source codes of [`rc-datetime-picker`](https://npmjs.com/package/rc-datetime-picker).
 
 Thanks to [~allenwu](https://www.npmjs.com/~allenwu) for authoring the base package [`rc-datetime-picker`](https://npmjs.com/package/rc-datetime-picker)
 
-[**See The `ChangeLog` Here**](https://github.com/smrsan76/imrc-datetime-picker/blob/master/CHANGELOG.md)
+[**See The `ChangeLog` Here**](https://github.com/smrsan76/react-solar-datetime-picker/blob/master/CHANGELOG.md)
 
-> Note: Check the [**TODO.md**](https://github.com/smrsan76/imrc-datetime-picker/blob/master/TODO.md)
+> Note: Check the [**TODO.md**](https://github.com/smrsan76/react-solar-datetime-picker/blob/master/TODO.md)
 > file before usage. Maybe some features are still **buggy 💀** since the [`rc-datetime-picker`](https://npmjs.com/package/rc-datetime-picker) package
 > or recently in the current package.
 
 ## Requirements
 
 - React
-- [Moment.js]
+- [Moment-jalaali.js]
 - Modern browsers (IE>=9 is required)
 
 ## Installation
@@ -23,24 +26,24 @@ Thanks to [~allenwu](https://www.npmjs.com/~allenwu) for authoring the base pack
 ### Install with NPM
 
 ```
-$ npm install imrc-datetime-picker
+$ npm install react-solar-datetime-picker
 ```
 
 ### Manual download
 
 Besides npm package, UMD module and styles are placed under `dist/` directory:
 
-- dist/imrc-datetime-picker.js
-- dist/imrc-datetime-picker-min.js
-- dist/imrc-datetime-picker.css
-- dist/imrc-datetime-picker.min.css
+- dist/react-solar-datetime-picker.js
+- dist/react-solar-datetime-picker-min.js
+- dist/react-solar-datetime-picker.css
+- dist/react-solar-datetime-picker.min.css
 
 ## Usage
 
 See the [demo] page.
 
-[moment.js]: http://momentjs.com/
-[demo]: https://smrsan76.github.io/imrc-datetime-picker/
+[moment-jalaali.js]: https://github.com/behrang/moment-jalaali
+[demo]: https://smrsan76.github.io/react-solar-datetime-picker/
 
 ## Props
 
@@ -571,5 +574,5 @@ See the [demo] page.
 We really appreciate your contributions.
 
 You can follow the rules of
-[**Contributing guide**](https://github.com/smrsan76/imrc-datetime-picker/blob/master/CONTRIBUTING.md)
+[**Contributing guide**](https://github.com/smrsan76/react-solar-datetime-picker/blob/master/CONTRIBUTING.md)
 to contribute with us.

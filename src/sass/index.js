@@ -1,1 +1,1 @@
-module.exports = require("./imrc-datetime-picker.scss");
+module.exports = require("./react-solar-datetime-picker.scss");
