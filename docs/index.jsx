@@ -1,7 +1,7 @@
 import "babel-polyfill";
 import React, { Component } from "react";
 import { render } from "react-dom";
-const moment = require("moment");
+const moment = require("moment-jalaali");
 
 import "../dist/react-solar-datetime-picker.min.css";
 
