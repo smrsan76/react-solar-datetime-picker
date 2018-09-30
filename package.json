@@ -1,7 +1,7 @@
 {
   "name": "react-solar-datetime-picker",
   "version": "0.0.1",
-  "description": "React component datetime picker by momentjs-jalaali",
+  "description": "React component solar datetime picker by momentjs-jalaali",
   "main": "dist/react-solar-datetime-picker.js",
   "keywords": [
     "react",
