@@ -3,11 +3,11 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 const moment = require("moment");
 
-import "../dist/imrc-datetime-picker.min.css";
+import "../dist/react-solar-datetime-picker.min.css";
 
 // Production Test/Use
 const DatetimePicker = RCLOADABLE(
-  () => import("../dist/imrc-datetime-picker.min.js"),
+  () => import("../dist/react-solar-datetime-picker.min.js"),
   {
     render: (loaded, props) => {
       const { DatetimePicker } = loaded;
@@ -16,7 +16,7 @@ const DatetimePicker = RCLOADABLE(
   }
 );
 const DatetimePickerTrigger = RCLOADABLE(
-  () => import("../dist/imrc-datetime-picker.min.js"),
+  () => import("../dist/react-solar-datetime-picker.min.js"),
   {
     render: (loaded, props) => {
       const { DatetimePickerTrigger } = loaded;
